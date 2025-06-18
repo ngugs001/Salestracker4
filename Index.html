@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sales Tracker</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background-color: #f9f9f9; }
+    input, select, button { padding: 8px; margin: 5px 0; width: 100%; max-width: 300px; }
+    form, .filters, .exports { margin-bottom: 20px; }
+    canvas { max-width: 700px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+
+  <h2>📊 Sales Tracker</h2>
+
+  <!-- ✅ Add Payment Form -->
+  <form id="payment-form">
+    <input type="text" id="name" placeholder="Customer Name" required><br>
+    <input type="number" id="amount" placeholder="Amount (KES)" required><br>
+    <input type="date" id="date" required><br>
+    <select id="method" required>
+      <option value="">Select Payment Method</option>
+      <option value="Cash">Cash</option>
+      <option value="M-Pesa">M-Pesa</option>
+      <option value="Bank">Bank</option>
+      <option value="Other">Other</option>
+    </select><br>
+    <button type="button" onclick="addPayment()">Add Payment</button>
+  </form>
+
+  <!-- ✅ Filters -->
+  <div class="filters">
+    <h3>🔍 Filter Records</h3>
+    <input type="date" id="filter-date">
+    <select id="filter-method">
+      <option value="">All Payment Methods</option>
+      <option value="Cash">Cash</option>
+      <option value="M-Pesa">M-Pesa</option>
+      <option value="Bank">Bank</option>
+      <option value="Other">Other</option>
+    </select>
+    <button onclick="applyFilters()">Apply Filters</button>
+  </div>
+
+  <!-- ✅ Export Buttons -->
+  <div class="exports">
+    <h3>📤 Export Options</h3>
+    <button onclick="exportToExcel()">Export to Excel</button>
+    <button onclick="exportToPDF()">Export to PDF</button>
+  </div>
+
+  <!-- ✅ Output List -->
+  <div id="output"><h3>📄 Payments</h3></div>
+
+  <!-- ✅ Charts -->
+  <h3>📈 Charts</h3>
+  <canvas id="dailyChart"></canvas>
+  <canvas id="methodChart"></canvas>
+
+  <!-- ✅ External Libraries (Chart.js, SheetJS, jsPDF) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <!-- 🧠 JavaScript logic will come in Part 2 -->
+  <script type="module" src="./logic.js"></script>
+
+</body>
+</html>
